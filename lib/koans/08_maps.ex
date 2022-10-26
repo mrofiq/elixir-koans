@@ -47,10 +47,10 @@ defmodule Maps do
 
   koan "When merging, the last map wins" do
     merged = Map.merge(@person, %{last_name: "Baratheon"})
-    assert Map.fetch(merged, :last_name) == ___
+    assert Map.fetch(merged, :last_name) == {:ok, "Baratheon"}
   end
 
   koan "You can also select sub-maps out of a larger map" do
-    assert Map.take(@person, [:first_name, :last_name]) == ___
+    assert Map.take(@person, [:first_name, :last_name]) == %{first_name: "Jon", last_name: "Snow"}
   end
 end
